@@ -1,27 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Class Method Graph</title>
   <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
-    #container { display: flex; }
-    #cy { width: 70vw; height: 90vh; border: 1px solid #ccc; }
-    #details { flex: 1; padding: 20px; background: #f9f9f9; }
-    .method-btn {
-      margin: 2px 0; padding: 3px 8px;
-      background: #0074D9; color: #fff; border: none; border-radius: 3px;
-      cursor: pointer;
+    /* Import a clean, modern font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
+      background-color: #f5f7fa;
+      color: #2c3e50;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
     }
-    .method-btn:hover {
-      background: #FF851B;
+
+    h2 {
+      margin: 20px 40px;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #34495e;
+    }
+
+    #container {
+      display: flex;
+      flex-grow: 1;
+      margin: 0 40px 40px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    #cy {
+      width: 70%;
+      height: 100%;
+      min-width: 400px;
+      border-right: 1px solid #e1e4e8;
+      background-color: #ffffff;
+    }
+
+    #details {
+      width: 30%;
+      padding: 30px;
+      overflow-y: auto;
+      font-size: 1rem;
+      line-height: 1.5;
+      background-color: #fafafa;
+    }
+
+    #details b {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      display: inline-block;
+      color: #34495e;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .method-btn {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(52, 152, 219, 0.4);
+      transition: background-color 0.25s ease;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+    }
+
+    .method-btn:hover,
+    .method-btn:focus {
+      background-color: #2980b9;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(41, 128, 185, 0.6);
+    }
+
+    /* Scrollbar styling for details panel */
+    #details::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #details::-webkit-scrollbar-thumb {
+      background-color: rgba(52, 152, 219, 0.4);
+      border-radius: 4px;
+    }
+
+    #details::-webkit-scrollbar-track {
+      background: #f0f1f3;
+    }
+
+    /* Responsive - stack on smaller screens */
+    @media (max-width: 768px) {
+      #container {
+        flex-direction: column;
+        margin: 20px;
+        height: auto;
+      }
+
+      #cy,
+      #details {
+        width: 100%;
+        height: 400px;
+        min-width: unset;
+      }
     }
   </style>
 </head>
 <body>
-  <h2>Class Node Graph</h2>
+  <h2>Class Method Graph</h2>
   <div id="container">
-    <div id="cy"></div>
-    <div id="details"><b>Click a class node to see its methods.</b></div>
+    <div id="cy" aria-label="Class method graph visualization"></div>
+    <div id="details" tabindex="0">
+      <b>Click a class node to see its methods.</b>
+    </div>
   </div>
   <script src="graph.js"></script>
 </body>
