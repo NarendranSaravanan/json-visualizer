@@ -48,70 +48,71 @@ python -m http.server 8000
 ```
 
 {
-"A": {
-"methods used": ["method1a", "method2a", "commonMethod"],
-"linked_classes": [
-{
-"B": {
-"methods used": ["method1b", "method2b", "method3a", "commonMethod"],
-"linked_classes": [
-{
-"D": {
-"methods used": ["method1d", "commonMethod"],
-"linked_classes": []
-}
-}
-]
-},
-"C": {
-"methods used": ["method1c", "method2b", "commonMethod"],
-"linked_classes": [
-{
-"E": {
-"methods used": ["method1e"],
-"linked_classes": []
-}
-},
-{
-"F": {
-"methods used": ["method1f", "method2f", "method3c", "commonMethod"],
-"linked_classes": [
-{
-"G": {
-"methods used": ["method1g", "commonMethod"],
-"linked_classes": []
-}
-}
-]
-}
-}
-]
-}
-}
-]
-},
-"X": {
-"methods used": ["method1x", "commonMethod"],
-"linked_classes": [
-{
-"Y": {
-"methods used": ["method1y", "commonMethod"],
-"linked_classes": []
-},
-"Z": {
-"methods used": ["method1z", "method2z", "commonMethod"],
-"linked_classes": [
-{
-"W": {
-"methods used": ["method1w", "commonMethod"],
-"linked_classes": []
-}
-}
-]
-}
-}
-]
-}
+  "A": {
+    "methods used": ["method1a", "method2a","commonMethod" ],
+    "linked_classes": [
+      {
+        "B": {
+          "methods used": ["method1b", "method2b", "method3a", "commonMethod"
+          ],
+          "linked_classes": [
+            {
+              "D": {
+                "methods used": [ "method1d", "commonMethod" ],
+                "linked_classes": []
+              }
+            }
+          ]
+        },
+        "C": {
+          "methods used": [ "method1c", "method2b", "commonMethod"],
+          "linked_classes": [
+            {
+              "E": {
+                "methods used": ["method1e" ],
+                "linked_classes": []
+              }
+            },
+            {
+              "F": {
+                "methods used": ["method1f","method2f", "method3c", "commonMethod"],
+                "linked_classes": [
+                  {
+                    "G": {
+                      "methods used": ["method1g", "commonMethod"],
+                      "linked_classes": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "X": {
+    "methods used": ["method1x","commonMethod" ],
+    "linked_classes": [
+      {
+        "Y": {
+          "methods used": ["method1y", "commonMethod" ],
+          "linked_classes": []
+        },
+        "Z": {
+          "methods used": ["method1z","method2z","commonMethod" ],
+          "linked_classes": [
+            {
+              "W": {
+                "methods used": ["method1w", "commonMethod"],
+                "linked_classes": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
 
 ```
